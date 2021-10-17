@@ -1,0 +1,32 @@
+{
+  "name": "sendgrid-nodejs-express",
+  "description": "Ejemplo básico de envío de emails utilizando el servicio Sendgrid, en NodeJS-Express.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aa-avila/sendgrid-nodejs-express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aa-avila/sendgrid-nodejs-express/issues"
+  },
+  "homepage": "https://github.com/aa-avila/sendgrid-nodejs-express#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
