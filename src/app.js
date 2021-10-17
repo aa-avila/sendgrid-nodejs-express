@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
+const sendEmail = require('./sendGrid/sendEmail');
 
 
 /*********************/
@@ -25,6 +26,26 @@ app.use(express.json());
 // ROUTES
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
+app.post('/', async (req, res) => {
+    try {
+        const { email, name, lastname } = req.body;
+
+        // Verificamos que se envien todos los datos
+        if (!email || !name || !lastname) {
+            const error = new Error("No enviaste todos los datos necesarios.");
+            error.status = 400;
+            throw error;
+        }
+
+        // sendgrid registration email
+        await sendEmail(email, name, lastname);
+        res.send('Email enviado!');
+        
+    } catch (error) {
+        next(error);
+    }
 });
 
 
